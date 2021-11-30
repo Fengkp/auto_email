@@ -129,6 +129,6 @@ dmypy.json
 .pyre/
 
 # Personal data
-/data/email_templates/email_template.html
-/data/email_templates/email_template.txt
-/data/contacts.csv
+data/email_templates/email_template.html
+data/email_templates/email_template.txt
+data/contacts.csv
