@@ -1,0 +1,2 @@
+--Write out your email content here--
+--Rename to email_template.txt when finished--

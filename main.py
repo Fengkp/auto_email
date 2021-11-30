@@ -1,9 +1,7 @@
-
 # Check if status is sent
 # If sent, see when it was sent
 # If 2 months have passed, send an email again
-# If 500 emails have been sent, stop sending
-
+# If 400 emails have been sent, stop sending
 import pandas as pd
 from csv import reader as reader
 from os.path import exists as exists
@@ -50,4 +48,3 @@ subject = 'Pipe Supply for Projects'
 username = environ.get('MY_EMAIL')
 set_unsent(contacts_path)
 send_unsent(contacts_path, username, subject)
-#send_sent(contacts_path, username, subject)
