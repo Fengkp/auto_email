@@ -8,6 +8,7 @@
     Construct Connect provides a .csv file describing a particular job and the companies associated with that job.<br>
     A separate application I've made takes those .csv files and parses out any companies that have bid on that particular project. Those bidding companies are added to a .csv file that keeps track of all the contact information.<br>
     This application uses that contact sheet to send out emails accordingly
-<h3>Log</h3>
+<h3>Changelog</h3>
     <li><i><b>11/30/2021: </b>Emails are sent if status is unsent</i></li>
     <li><i><b>11/30/2021: </b>Wait 20 seconds before sending another email as to not exceed domain limit</i></li>
+    <li><i><b>11/30/2021: </b>Implemented interval sending function, but need to test</i></li>

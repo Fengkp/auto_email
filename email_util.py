@@ -33,4 +33,5 @@ def prepare_message(sender, receiver, subject):
 def prepare_and_send(sender, receiver, subject):
     message = prepare_message(sender, receiver, subject)
     send_email(message)
+    print('email sent')
     sleep(20)

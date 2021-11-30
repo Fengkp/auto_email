@@ -12,7 +12,7 @@ from email_util import prepare_and_send
 from datetime import datetime
 
 def send_unsent(path, sender, subject):      
-    data = pd.read_csv(path)
+    data = pd.read_csv(path, parse_dates=['Send Date'])
     for index, row in data.iterrows():
         if 'Unsent' in row['Status']:
             receiver = data.loc[index, 'Email']
@@ -20,6 +20,23 @@ def send_unsent(path, sender, subject):
             data.loc[index, 'Status'] = 'Sent'
             data.loc[index, 'Send Date'] = datetime.now()
     data.to_csv(path, index=False)
+
+def send_sent(path, sender, subject):
+    data = pd.read_csv(path, parse_dates=['Send Date'])
+    for index, row in data.iterrows():
+        if 'Sent' in row['Status']:
+            date_sent = data.loc[index, 'Send Date']
+            if get_date_difference(date_sent) > 30:
+                receiver = data.loc[index, 'Email']
+                prepare_and_send(sender, receiver, subject)
+                data.loc[index, 'Status'] = 'Sent'
+                data.loc[index, 'Send Date'] = datetime.now()
+
+def get_date_difference(date_sent):
+    date_now = datetime.now()
+    interval_time = date_now - date_sent
+    print(interval_time.days)
+    return interval_time.days
 
 def set_unsent(path):
     data = pd.read_csv(path)
@@ -33,3 +50,4 @@ subject = 'Pipe Supply for Projects'
 username = environ.get('MY_EMAIL')
 set_unsent(contacts_path)
 send_unsent(contacts_path, username, subject)
+#send_sent(contacts_path, username, subject)
