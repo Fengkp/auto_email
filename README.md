@@ -10,3 +10,4 @@
     This application uses that contact sheet to send out emails accordingly
 <h3>Log</h3>
     <li><i><b>11/30/2021: </b>Emails are sent if status is unsent</i></li>
+    <li><i><b>11/30/2021: </b>Wait 20 seconds before sending another email as to not exceed domain limit</i></li>
